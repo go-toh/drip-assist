@@ -19,7 +19,6 @@ export default function Home() {
 
       <HeaderBar />
       <RecipeChangeForm />
-      <RecipeView />
     </>
   )
 }
