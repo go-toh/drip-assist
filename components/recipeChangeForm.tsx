@@ -2,7 +2,6 @@ import { Recipe, setCustomRecipe } from '@/src/lib/firestore'
 import {
     FormControl,
     FormLabel,
-    FormErrorMessage,
     FormHelperText,
     Input,
     Box,
@@ -24,6 +23,7 @@ export const RecipeChangeForm = () => {
     const [bean_type, setBean_type] = useState<string | null>("")
     const [powder_weight, setPowder_weight] = useState<number | null>(0)
     const [water_temp, setWater_temp] = useState<number | null>(0)
+    const [water_weight, setWater_weight] = useState<number | null>(0)
     const [steam_weight, setSteam_weight] = useState<number | null>(0)
     const [steam_time, setSteam_time] = useState<number | null>(0)
     const [drip_dist, setDrip_dist] = useState<Array<number>>([0, 0, 0])
@@ -43,12 +43,11 @@ export const RecipeChangeForm = () => {
         user_ID: user?.uid,
         user_name: user?.displayName,
         water_temp,
-        water_weight: 0,
+        water_weight,
         steam_time,
         steam_weight
       }
     )
-
 
     return (
         <Flex top={0} bg="teal.500" justifyContent="flex-end">
@@ -99,6 +98,11 @@ export const RecipeChangeForm = () => {
                   <FormLabel>ドリップ湯量(3回目)</FormLabel>
                   <Input w={"50vw"} onBlur={(e) => setDrip_dist(drip_dist.map((dist, index) => (index === 2 ? Number(e.target.value) : dist)))}/>
                   <FormHelperText>ドリップ湯量(3回目)を入力してください.</FormHelperText>
+
+                  <Box p="2" />
+                  <FormLabel>全体湯量</FormLabel>
+                  <Input w={"50vw"} onBlur={(e) => setWater_weight(Number(e.target.value))}/>
+                  <FormHelperText>全体の湯量を入力してください.</FormHelperText>
 
                   <Box p="2" />
                   <FormLabel>コメント</FormLabel>

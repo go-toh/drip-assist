@@ -3,7 +3,6 @@ import Head from 'next/head'
 import { HeaderBar } from 'components/headerBar';
 import { useSignInState } from '@/src/contexts/signInStateProvider';
 
-import { RecipeView } from '@/components/recipeView';
 import { RecipeChangeForm } from '@/components/recipeChangeForm';
 
 export default function Home() {

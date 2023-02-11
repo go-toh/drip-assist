@@ -1,5 +1,5 @@
 import { db } from "./firebase";
-import { doc, getDoc, getDocs, setDoc, deleteDoc, collection, updateDoc, arrayUnion, addDoc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 
 export type Recipe = {
     bean_type: string  | null | undefined,
@@ -14,7 +14,7 @@ export type Recipe = {
     user_ID: string  | null | undefined,
     user_name: string  | null | undefined,
     water_temp: number | null | undefined,
-    water_weight: number,
+    water_weight: number | null | undefined,
     steam_time: number | null | undefined,
     steam_weight: number | null | undefined
 }
